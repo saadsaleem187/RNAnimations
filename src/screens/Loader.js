@@ -1,9 +1,10 @@
 import React, {useRef, useEffect} from 'react';
 import {StyleSheet, View, Animated} from 'react-native';
+import BackArrow from '../components/BackArrow';
 
 const SIZE = 100.0;
 
-const Loader = () => {
+const Loader = ({navigation}) => {
   const progress = useRef(new Animated.Value(0.5)).current;
   const scale = useRef(new Animated.Value(1)).current;
 
@@ -24,6 +25,7 @@ const Loader = () => {
 
   return (
     <View style={styles.container}>
+      <BackArrow navigation={navigation} />
       <Animated.View
         style={[
           styles.square,
