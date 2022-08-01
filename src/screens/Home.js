@@ -15,6 +15,11 @@ const Home = ({navigation}) => {
         onPress={() => navigation.navigate('Loader')}>
         <Text style={styles.btnText}>Loader</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.btn}
+        onPress={() => navigation.navigate('LoginForm')}>
+        <Text style={styles.btnText}>Login Form</Text>
+      </TouchableOpacity>
     </ScrollView>
   );
 };

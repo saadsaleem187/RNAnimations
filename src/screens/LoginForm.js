@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {
   StyleSheet,
   View,
@@ -11,11 +11,9 @@ import {
 
 const {height} = Dimensions.get('window');
 
-const LoginForm = () => {
-  const [coverHeight, setCoverHeight] = useState(
-    new Animated.Value(height - 80),
-  );
-  const [formOpacity, setFormOpacity] = useState(new Animated.Value(0));
+const LoginForm = ({navigation}) => {
+  const coverHeight = useRef(new Animated.Value(height - 80)).current;
+  const formOpacity = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
     startAnimation();
@@ -61,7 +59,10 @@ const LoginForm = () => {
             placeholderTextColor="#fafafa"
             style={styles.textInput}
           />
-          <TouchableOpacity activeOpacity={0.7} style={styles.btn}>
+          <TouchableOpacity
+            activeOpacity={0.7}
+            style={styles.btn}
+            onPress={() => navigation.navigate('Home')}>
             <Text style={styles.btnText}>Log in</Text>
           </TouchableOpacity>
         </Animated.View>
